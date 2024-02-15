@@ -13,7 +13,7 @@ function App() {
         <div>
             <AppTitle />
 
-            <Accordion title={ 'Title menu' }/>
+            <Accordion title={ 'Title menu 1' }/>
 
             {/*<Rating />*/}
             {/*<OnOff/>*/ }
