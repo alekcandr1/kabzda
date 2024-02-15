@@ -1,7 +1,7 @@
 import React from 'react';
 
 type StarPropsType = {
-    selected: boolean;
+    selected: boolean
 }
 
 export function Star(props: StarPropsType) {
