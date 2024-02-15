@@ -1,10 +1,10 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Accordion } from './components/Accordion/accordion';
-import { Rating } from './components/Rating/Rating';
+import { Accordion } from './components/accordion/Accordion';
+import { Rating } from './components/rating/Rating';
 import { AppTitle } from './components/App-title';
-import OnOff from './components/OnOff';
+import OnOff from './components/onOff/OnOff';
 
 // function declaration
 function App() {
@@ -13,8 +13,9 @@ function App() {
         <div>
             <AppTitle />
 
-            {/*<Accordion title={ 'Title menu' }/>*/ }
-            <Rating />
+            <Accordion title={ 'Title menu' }/>
+
+            {/*<Rating />*/}
             {/*<OnOff/>*/ }
 
         </div>

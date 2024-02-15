@@ -1,6 +1,6 @@
 import React from 'react';
-import { AccordionTitle } from './accordion-title';
-import { AccordionBody } from './accordion-body';
+import { AccordionTitle } from './Accordion-title';
+import { AccordionBody } from './Accordion-body';
 
 type AccordionPropsType = {
     title: string
