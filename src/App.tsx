@@ -14,6 +14,7 @@ function App() {
             <AppTitle />
 
             <Accordion title={ 'Title menu' }/>
+            <Accordion title={ 'Title menu' }/>
 
             {/*<Rating />*/}
             {/*<OnOff/>*/ }
