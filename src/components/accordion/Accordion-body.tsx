@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 
-export function AccordionBody() {
+type AccordionBodyType = {
+    isCollapsed: boolean
+}
 
-    const [isCollapsed, setIsCollapsed] = useState<boolean>(false)
-
+export function AccordionBody( {isCollapsed}: AccordionBodyType ) {
     return (
         <div>
-            <button onClick={ () => setIsCollapsed(!isCollapsed) }>
-                { isCollapsed ? 'Развернуть' : 'Свернуть' }
-            </button>
             <ul style={ {display: isCollapsed ? 'none' : 'block'} }>
                 <li>1</li>
                 <li>2</li>

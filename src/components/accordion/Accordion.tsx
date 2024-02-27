@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AccordionTitle } from './Accordion-title';
 import { AccordionBody } from './Accordion-body';
 
 type AccordionPropsType = {
     title: string
+    isCollapsed: boolean
+    setIsCollapsed: (isCollapsed: boolean) => void
 }
 
-export function Accordion(props: AccordionPropsType) {
-    console.log('Accordion rendering');
+export function Accordion( {title, isCollapsed, setIsCollapsed}: AccordionPropsType) {
+
+    const setIsCollapsedHandler = () => {
+        setIsCollapsed(!isCollapsed)
+    }
     return (
         <div>
-            <AccordionTitle title={props.title} />
-            <AccordionBody />
+            <AccordionTitle title={title} setIsCollapsed={setIsCollapsedHandler} />
+            <AccordionBody isCollapsed={isCollapsed} />
         </div>
     );
 }

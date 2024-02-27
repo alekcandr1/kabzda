@@ -1,33 +1,39 @@
 import React, { useState } from 'react';
 import { Star } from './Star';
+import { RatingType } from '../../App';
 
-type RatingType = 0 | 1 | 2 | 3 | 4 | 5
+export type RatingTypeProps = {
+    currentRating: RatingType
+    setCurrentRating: (value: RatingType) => void
+}
 
-export function Rating() {
+export function Rating( {currentRating, setCurrentRating}: RatingTypeProps ) {
 
-    const [currentRating, setCurrentRating] = useState<RatingType>(0)
-
-    const onClickHandler = ( value: RatingType ) => {
-        setCurrentRating(value)
+    const onClickHandler = ( currentRating: RatingType ) => {
+        setCurrentRating(currentRating)
     }
     const renderRatingStars = () => {
         const allStars = []
-        for (let i: RatingType = 1; i <= 5; i++) {
-            allStars.push(<Star key={ i } selected={ currentRating >= i } />)
+        for (let i = 1; i <= 5; i++) {
+            allStars.push(<Star key={ i }
+                                selected={ currentRating >= i }
+                                setValue={ setCurrentRating }
+                                value={ i as RatingType }
+            />)
         }
         return allStars
     }
     const renderRatingButtons = () => {
         const allButtons = []
         for (let i: RatingType = 0; i <= 5; i++) {
-            allButtons.push(<button key={ i } onClick={ () => onClickHandler(i) }>{i}</button>)
+            allButtons.push(<button key={ i } onClick={ () => onClickHandler(i) }>{ i }</button>)
         }
         return allButtons
     }
 
+
     return (
         <div>
-
             { renderRatingStars() }
             <br />
             { renderRatingButtons() }
