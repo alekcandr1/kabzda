@@ -9,6 +9,6 @@ export function AccordionTitle( props: AccordionTitlePropsType ) {
     console.log('AccordionTitle rendering');
 
     return (
-        <h3 onClick={ props.setIsCollapsed }>{ props.title }</h3>
+        <h3 onClick={ (e) => props.setIsCollapsed() }>{ props.title }</h3>
     );
 }

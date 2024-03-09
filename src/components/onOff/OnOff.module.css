@@ -1,0 +1,29 @@
+.buttonMain {
+    border-radius: 5px;
+    margin-left: 10px;
+    display: inline-block;
+    padding: 5px 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    background-color: #e5e5e5;
+    text-align: center;
+}
+
+.onStyle {
+    background-color: #3d8f3d;
+    color: #d9eae1;
+}
+
+.offStyle {
+    background-color: #c73838;
+    color: #d9eae1;
+}
+
+.indicatorStyle {
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    /*border: 1px solid #2c2c2c;*/
+    margin-left: 10px;
+    display: inline-block;
+    margin-left: 20px;
+}

@@ -8,9 +8,9 @@ export function AccordionBody( {isCollapsed}: AccordionBodyType ) {
     return (
         <div>
             <ul style={ {display: isCollapsed ? 'none' : 'block'} }>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
+                <li>Home</li>
+                <li>About us</li>
+                <li>Contacts</li>
             </ul>
         </div>
     );

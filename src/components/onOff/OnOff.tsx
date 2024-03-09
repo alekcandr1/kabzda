@@ -1,53 +1,18 @@
 import React, { useState } from 'react';
+import s from './OnOff.module.css'
 
-const OnOff = () => {
-    const [status, setStatus] = useState<boolean>(false)
-
-    const onStyle = {
-        width: '30px',
-        height: '20px',
-        borderRadius: '10px',
-        border: '1px solid #000',
-        marginLeft: '10px',
-        display: 'inline-block',
-        paddingLeft: '3px',
-        background: status ? 'green' : 'white'
-
-
-    }
-    const offStyle = {
-        width: '30px',
-        height: '20px',
-        borderRadius: '10px',
-        border: '1px solid #000',
-        marginLeft: '10px',
-        display: 'inline-block',
-        paddingLeft: '3px',
-        background: status ? 'white' : 'red'
-
-
-    }
-    const indicatorStyle = {
-        width: '10px',
-        height: '10px',
-        borderRadius: '10px',
-        border: '1px solid #000',
-        marginLeft: '10px',
-        display: 'inline-block',
-        background: status ? 'green' : 'red'
-    }
-
-    function onClickHandler() {
-        setStatus(!status)
-    }
+export type OnOffType = {
+    status: boolean
+    onChange: () => void
+}
+export const OnOff = ( {status, onChange}: OnOffType ) => {
 
     return (
         <div>
-            <div style={ onStyle } onClick={ onClickHandler }>On</div>
-            <div style={ offStyle } onClick={ onClickHandler }>Off</div>
-            <div style={ indicatorStyle }></div>
+            <br />
+            <div className={ status ? s.buttonMain + ' ' + s.onStyle : s.buttonMain } onClick={ onChange }>On</div>
+            <div className={ !status ? s.buttonMain + ' ' + s.offStyle : s.buttonMain } onClick={ onChange }>Off</div>
+            <div className={ status ? s.indicatorStyle + ' ' + s.onStyle :  s.indicatorStyle + ' ' + s.offStyle }></div>
         </div>
     );
-};
-
-export default OnOff;
+}

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Star } from './Star';
 import { RatingType } from '../../App';
+import s from './Rating.module.css'
 
 export type RatingTypeProps = {
     currentRating: RatingType
-    setCurrentRating: (value: RatingType) => void
+    setCurrentRating: ( value: RatingType ) => void
 }
 
 export function Rating( {currentRating, setCurrentRating}: RatingTypeProps ) {
@@ -26,7 +27,7 @@ export function Rating( {currentRating, setCurrentRating}: RatingTypeProps ) {
     const renderRatingButtons = () => {
         const allButtons = []
         for (let i: RatingType = 0; i <= 5; i++) {
-            allButtons.push(<button key={ i } onClick={ () => onClickHandler(i) }>{ i }</button>)
+            allButtons.push(<button className={ s.buttonMain } key={ i } onClick={ () => onClickHandler(i) }>{ i }</button>)
         }
         return allButtons
     }
