@@ -1,0 +1,26 @@
+.accordion {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+}
+
+.accordion ul {
+    padding-left: 10px;
+    margin: 0;
+}
+
+.accordion li {
+    display: block;
+    margin-right: 0px;
+}
+
+.accordion li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.accordion li a:hover {
+    color: #555;
+}
