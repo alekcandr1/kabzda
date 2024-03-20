@@ -1,16 +1,24 @@
 import React, { useState } from 'react';
 
-type AccordionBodyType = {
-    isCollapsed: boolean
+export type ItemType = {
+    title: string,
+    value: any,
+
 }
 
-export function AccordionBody( {isCollapsed}: AccordionBodyType ) {
+type AccordionBodyType = {
+    isCollapsed: boolean
+    items: Array<ItemType>
+    onClick: ( id: string ) => void
+}
+
+export function AccordionBody( {isCollapsed, items, onClick}: AccordionBodyType ) {
+
     return (
         <div>
             <ul style={ {display: isCollapsed ? 'none' : 'block'} }>
-                <li>Home</li>
-                <li>About us</li>
-                <li>Contacts</li>
+                { items.map(( item, index ) => <li key={ index }
+                                                   onClick={ () => onClick(item.value) }>{ item.title }</li>) }
             </ul>
         </div>
     );

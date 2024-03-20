@@ -13,11 +13,26 @@ function App() {
     const [isCollapsed, setIsCollapsed] = useState<boolean>(false)
     const [status, setStatus] = useState<boolean>(true)
 
+    const AccordionItems = [
+        {
+            title: 'Home',
+            value: '1',
+        },
+        {
+            title: 'Services',
+            value: '2',
+        },
+        {
+            title: 'Contacts',
+            value: '3',
+        }
+    ]
 
     return (
         <div>
             <AppTitle />
-            <Accordion title={ 'Menu' } isCollapsed={ isCollapsed } onChange={ () => setIsCollapsed(!isCollapsed) } />
+            <Accordion title={ 'Menu' } isCollapsed={ isCollapsed } onChange={ () => setIsCollapsed(!isCollapsed) }
+                       items={ AccordionItems } onClick={()=>{}}/>
             <Rating currentRating={ currentRating } setCurrentRating={ setCurrentRating } />
             <OnOff status={ status } onChange={ () => setStatus(!status) } />
         </div>
