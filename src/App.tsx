@@ -1,17 +1,22 @@
-import React, { useState } from 'react';
+import React, { useReducer, useState } from 'react';
 import './App.css';
 import { Accordion } from './components/accordion/Accordion';
 import { Rating } from './components/rating/Rating';
 import { AppTitle } from './components/App-title';
 import { OnOff } from './components/onOff/OnOff';
+import { reducer, StateType } from './reducer';
 
 export type RatingType = 0 | 1 | 2 | 3 | 4 | 5
 
+
 function App() {
 
-    const [currentRating, setCurrentRating] = useState<RatingType>(0)
-    const [isCollapsed, setIsCollapsed] = useState<boolean>(false)
-    const [status, setStatus] = useState<boolean>(true)
+
+    const [state, dispatch] = useReducer(reducer, {
+        isCollapsed: false,
+        currentRating: 0,
+        status: true
+    })
 
     const AccordionItems = [
         {
@@ -31,10 +36,18 @@ function App() {
     return (
         <div>
             <AppTitle />
-            <Accordion title={ 'Menu' } isCollapsed={ isCollapsed } onChange={ () => setIsCollapsed(!isCollapsed) }
-                       items={ AccordionItems } onClick={()=>{}}/>
-            <Rating currentRating={ currentRating } setCurrentRating={ setCurrentRating } />
-            <OnOff status={ status } onChange={ () => setStatus(!status) } />
+            <Accordion title={ 'Menu ∨' }
+                       isCollapsed={ state.isCollapsed }
+                       onChange={ () => dispatch({type: 'TOGGLE-COLLAPSED'}) }
+                       items={ AccordionItems } onClick={ () => {
+            } }
+            />
+            <Rating currentRating={ state.currentRating }
+                    setCurrentRating={ (e) => dispatch({type: 'SET-RATING', payload: e}) }
+            />
+            <OnOff status={ state.status }
+                   onChange={ () => dispatch({type: 'TOGGLE-STATUS'}) }
+            />
         </div>
     );
 }

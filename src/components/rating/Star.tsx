@@ -9,7 +9,7 @@ type StarPropsType = {
 }
 
 export function Star( props: StarPropsType ) {
-    console.log('Star rendering');
+    // console.log('Star rendering');
 
     // debugger;
     return (

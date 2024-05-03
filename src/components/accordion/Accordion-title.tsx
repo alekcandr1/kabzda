@@ -6,7 +6,7 @@ type AccordionTitlePropsType = {
 }
 
 export function AccordionTitle( props: AccordionTitlePropsType ) {
-    console.log('AccordionTitle rendering');
+    // console.log('AccordionTitle rendering');
 
     return (
         <h3 onClick={ (e) => props.setIsCollapsed() }>{ props.title }</h3>

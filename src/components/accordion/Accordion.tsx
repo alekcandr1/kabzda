@@ -16,7 +16,7 @@ export function Accordion( {title, isCollapsed, onChange, items, onClick}: Accor
     return (
         <div className={ s.accordion }>
             <AccordionTitle title={ title } setIsCollapsed={ onChange } />
-            <AccordionBody isCollapsed={ isCollapsed } items={ items } onClick={ onClick } />
+            { !isCollapsed && <AccordionBody isCollapsed={ isCollapsed } items={ items } onClick={ onClick } /> }
         </div>
     );
 }

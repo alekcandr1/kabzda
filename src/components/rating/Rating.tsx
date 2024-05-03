@@ -27,11 +27,11 @@ export function Rating( {currentRating, setCurrentRating}: RatingTypeProps ) {
     const renderRatingButtons = () => {
         const allButtons = []
         for (let i: RatingType = 0; i <= 5; i++) {
-            allButtons.push(<button className={ s.buttonMain } key={ i } onClick={ () => onClickHandler(i) }>{ i }</button>)
+            allButtons.push(<button className={ s.buttonMain } key={ i }
+                                    onClick={ () => onClickHandler(i) }>{ i }</button>)
         }
         return allButtons
     }
-
 
     return (
         <div>

@@ -16,7 +16,7 @@ export function AccordionBody( {isCollapsed, items, onClick}: AccordionBodyType 
 
     return (
         <div>
-            <ul style={ {display: isCollapsed ? 'none' : 'block'} }>
+            <ul>
                 { items.map(( item, index ) => <li key={ index }
                                                    onClick={ () => onClick(item.value) }>{ item.title }</li>) }
             </ul>
