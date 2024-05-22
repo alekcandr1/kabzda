@@ -5,8 +5,8 @@ export type OnOffType = {
     status: boolean
     onChange: () => void
 }
-export const OnOff = ( {status, onChange}: OnOffType ) => {
-
+export const OnOffMemo = ( {status, onChange}: OnOffType ) => {
+    console.log('Render OnOff')
     return (
         <div>
             <br />
@@ -16,3 +16,5 @@ export const OnOff = ( {status, onChange}: OnOffType ) => {
         </div>
     );
 }
+
+export const OnOff = React.memo(OnOffMemo)

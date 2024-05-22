@@ -8,8 +8,8 @@ export type RatingTypeProps = {
     setCurrentRating: ( value: RatingType ) => void
 }
 
-export function Rating( {currentRating, setCurrentRating}: RatingTypeProps ) {
-
+export const RatingMemo = ( {currentRating, setCurrentRating}: RatingTypeProps ) => {
+    console.log('Render Rating')
     const onClickHandler = ( currentRating: RatingType ) => {
         setCurrentRating(currentRating)
     }
@@ -41,3 +41,5 @@ export function Rating( {currentRating, setCurrentRating}: RatingTypeProps ) {
         </div>
     );
 }
+
+export const Rating = React.memo(RatingMemo)

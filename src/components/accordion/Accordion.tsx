@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { AccordionTitle } from './Accordion-title';
 import { AccordionBody, ItemType } from './Accordion-body';
 import s from './Accordion.module.css'
@@ -11,8 +11,8 @@ type AccordionPropsType = {
     onClick: ( id: string ) => void
 }
 
-export function Accordion( {title, isCollapsed, onChange, items, onClick}: AccordionPropsType ) {
-
+export const AccordionMemo = ( {title, isCollapsed, onChange, items, onClick}: AccordionPropsType ) => {
+    console.log('Render Accordion')
     return (
         <div className={ s.accordion }>
             <AccordionTitle title={ title } setIsCollapsed={ onChange } />
@@ -20,3 +20,5 @@ export function Accordion( {title, isCollapsed, onChange, items, onClick}: Accor
         </div>
     );
 }
+
+export const Accordion = React.memo(AccordionMemo)
