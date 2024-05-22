@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+// @flow
+import * as React from 'react';
+import exp from 'constants';
+import { useMemo, useState } from 'react';
 
 export default {
-    title: 'React.memo demo'
+    title: 'Use Memo'
 }
 
-const NewMessageCounter = ( props: {count: number} ) => {
-    console.log('Render Counter')
-    return <div>{ props.count }</div>
+const DifficultCountingExample = () => {
+
 }
 
 const UsersSecret = ( props: {users: Array<string>} ) => {
@@ -18,10 +20,14 @@ const UsersSecret = ( props: {users: Array<string>} ) => {
 
 const Users = React.memo(UsersSecret)
 
-export const Example1 = () => {
-    // console.log('Example')
+export const HelpsToReactMemo = () => {
+    console.log('Helps to React memo')
     const [counter, setCounter] = useState(0)
-    const [users, setUsers] = useState(['Bob', 'Alex'])
+    const [users, setUsers] = useState(['Bob', 'Alex', 'Ann'])
+
+    const newArray = useMemo(() => {
+        return users.filter(u => u.toLowerCase().indexOf('a') > -1)
+    }, [users])
 
     return <>
         <button onClick={ () => {
@@ -29,13 +35,15 @@ export const Example1 = () => {
         } }>
             +
         </button>
+
         <button onClick={ () => {
             setUsers([...users, 'Ann ' + new Date().getTime()])
         } }>
             Add user
         </button>
-        <NewMessageCounter count={ counter } />
-        <Users users={ users } />
+
+        { counter }
+        <Users users={ newArray } />
     </>
 }
 
