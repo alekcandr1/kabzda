@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Rating } from './Rating';
-import { number } from 'prop-types';
 import { useState } from 'react';
 import { RatingType } from '../../App';
 
@@ -15,13 +14,6 @@ export default meta;
 
 
 type Story = StoryObj<typeof meta>;
-
-// export const EmptyStars: Story = {
-//     args: {
-//         setCurrentRating: ()=>{},
-//         Rating: 0
-//     },
-// };
 
 export const EmptyRating = () => <Rating currentRating={ 0 } setCurrentRating={ () => {
 } } />
